@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A91527111BF4409400C24F11 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A91527101BF4409400C24F11 /* main.cpp */; };
+		A91527171BF451E700C24F11 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A91527101BF4409400C24F11 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -118,7 +118,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A91527111BF4409400C24F11 /* main.cpp in Sources */,
+				A91527171BF451E700C24F11 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,14 +206,38 @@
 		A91527151BF4409400C24F11 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/mysql/include,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/mysql/lib;
+				OTHER_LDFLAGS = (
+					"-lmysqlclient",
+					"-lm",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
 		A91527161BF4409400C24F11 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/mysql/include,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/mysql/lib;
+				OTHER_LDFLAGS = (
+					"-lmysqlclient",
+					"-lm",
+					"-lz",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
