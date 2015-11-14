@@ -9,14 +9,16 @@
 #include <mysql.h>
 #include <iostream>
 using namespace std;
+void login();
 
 int main(int argc, const char * argv[]) {
     login();
     return 0;
 }
 
-int login() {
+void login() {
     // insert code here...
+    
     MYSQL *conn;
     MYSQL_RES *res_set;
     MYSQL_ROW row;
@@ -27,6 +29,7 @@ int login() {
     // login
     string username = "Harry Jenkins";
     string password = "butterflY";
+    cin >> username >> password;
     string callProcedure = "CALL login('"+ username + "', '" + password + "', @isValid);";
     mysql_query(conn, callProcedure.c_str());
     mysql_query(conn, "SELECT @isValid");
@@ -35,7 +38,6 @@ int login() {
     res_set = mysql_use_result(conn);
     row = mysql_fetch_row( res_set );
     cout << row[0] << endl;
-    return 0;
 }
 
 
