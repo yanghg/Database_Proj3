@@ -13,7 +13,20 @@
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    login();
+    
+    //initialization
+    MYSQL *successConn, *conn;
+    conn = mysql_init(NULL);
+    successConn = mysql_real_connect(conn, "localhost", "root", "fangxiao", "project3-nudb", 3307, 0, 0);
+    
+    // check if connection is built successfully
+    if (successConn == NULL) {
+        printf("Can not build connection!");
+        return 1;
+    }
+    
+    cout << login(conn) << endl;
+    
     return 0;
 }
 

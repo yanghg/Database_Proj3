@@ -10,7 +10,8 @@
 #define __database_proj3__login__
 
 #include <stdio.h>
+#include <mysql.h>
 
-void login();
+int login(MYSQL *conn);
 
 #endif /* defined(__database_proj3__login__) */
