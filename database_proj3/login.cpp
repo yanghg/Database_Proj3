@@ -8,6 +8,7 @@
 // Harry Jenkins butterflY
 
 #include "login.h"
+#include "student.h"
 #include <mysql.h>
 #include <iostream>
 using namespace std;
@@ -17,7 +18,7 @@ int login(MYSQL *conn) {
     
     MYSQL_RES *res_set;
     MYSQL_ROW row;
-    
+
     // input username and password
     string username = "";
     string password = "";

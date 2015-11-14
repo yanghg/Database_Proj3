@@ -6,15 +6,19 @@
 //  Copyright (c) 2015年 Hongyg. All rights reserved.
 //
 
+#include "login.h"
+#include "student.h"
 #include <mysql.h>
 #include <iostream>
-#include "login.h"
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
     
     //initialization
+    Student user;
+    string username;
+    bool isLogin = false;
     MYSQL *successConn, *conn;
     conn = mysql_init(NULL);
     successConn = mysql_real_connect(conn, "localhost", "root", "fangxiao", "project3-nudb", 3307, 0, 0);
@@ -25,8 +29,16 @@ int main(int argc, const char * argv[]) {
         return 1;
     }
     
-    cout << login(conn) << endl;
-    
+    isLogin = login(conn);
+    if (isLogin) {
+        printf("Welcome!");
+        
+        //get student profile
+    }
+    else {
+        printf("Invalid Username or Password!");
+        return 1;
+    }
     return 0;
 }
 

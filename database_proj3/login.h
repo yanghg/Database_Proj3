@@ -9,6 +9,7 @@
 #ifndef __database_proj3__login__
 #define __database_proj3__login__
 
+#include "student.h"
 #include <stdio.h>
 #include <mysql.h>
 
