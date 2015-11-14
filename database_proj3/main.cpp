@@ -8,40 +8,15 @@
 
 #include <mysql.h>
 #include <iostream>
+#include "login.h"
+
 using namespace std;
-void login();
 
 int main(int argc, const char * argv[]) {
     login();
     return 0;
 }
 
-void login() {
-    // insert code here...
-    
-    MYSQL *conn;
-    MYSQL_RES *res_set;
-    MYSQL_ROW row;
-    conn = mysql_init(NULL);
-    mysql_real_connect(conn, "localhost", "root", "fangxiao", "project3-nudb", 3307, 0, 0);
-    
-    
-    // login
-    string username = "";
-    string password = "";
-    cout << "Input username!" << endl;
-    cin >> username;
-    cout << "Input password!" << endl;
-    cin >> password;
-    
-    string callProcedure = "CALL login('"+ username + "', '" + password + "', @isValid);";
-    mysql_query(conn, callProcedure.c_str());
-    mysql_query(conn, "SELECT @isValid");
-    
-    
-    res_set = mysql_use_result(conn);
-    row = mysql_fetch_row( res_set );
-    cout << row[0] << endl;
-}
+
 
 
