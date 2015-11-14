@@ -29,7 +29,6 @@ void login() {
     // login
     string username = "Harry Jenkins";
     string password = "butterflY";
-    cin >> username >> password;
     string callProcedure = "CALL login('"+ username + "', '" + password + "', @isValid);";
     mysql_query(conn, callProcedure.c_str());
     mysql_query(conn, "SELECT @isValid");

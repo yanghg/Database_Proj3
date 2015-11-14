@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C1A85AC4-3F1E-4FBD-8CFD-B6B1C25E7707</string>
+	<key>IDESourceControlProjectName</key>
+	<string>database_proj3</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>74E3EB10911485B7CB9F8136E0A3153469F0BFB4</key>
+		<string>https://github.com/yanghg/Database_Proj3.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>database_proj3.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>74E3EB10911485B7CB9F8136E0A3153469F0BFB4</key>
+		<string>../../../Database_Proj3</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/yanghg/Database_Proj3.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>74E3EB10911485B7CB9F8136E0A3153469F0BFB4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>74E3EB10911485B7CB9F8136E0A3153469F0BFB4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>database_proj3</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>74E3EB10911485B7CB9F8136E0A3153469F0BFB4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Database_Proj3</string>
+		</dict>
+	</array>
+</dict>
+</plist>
