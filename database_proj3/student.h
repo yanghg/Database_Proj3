@@ -23,6 +23,7 @@ public:
     int getStudentId();
     Student(int studentId, std::string username, std::string address);
     std::string getName();
+    std::string getAddress();
 };
 
 #endif /* defined(__database_proj3__student__) */

@@ -20,7 +20,7 @@ public:
     bool serverConnInit();
     int login();
 private:
-    Student currentStudent;
+    Student *currentStudent;
     MYSQL * conn;
 };
 

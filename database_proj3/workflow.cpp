@@ -32,9 +32,9 @@ bool WorkFlow::serverConnInit(){
 // Harry Jenkins butterflY
 int WorkFlow::login(){
     // insert code here...
-
-    MYSQL_RES *res_set;
-    MYSQL_ROW row;
+    int isValidFlag = 0;
+    MYSQL_RES *stuInfo;
+    MYSQL_ROW rowStuInfo;
 
     // input username and password
     string username = "";
@@ -44,14 +44,15 @@ int WorkFlow::login(){
     cout << "Password:" << endl;
     cin >> password;
 
-    // check infomation
-    string callProcedure = "CALL login('"+ username + "', '" + password + "', @isValid);";
+    // check and get student infomation
+    string callProcedure = "CALL login('"+ username + "', '" + password + "');";
     mysql_query(conn, callProcedure.c_str());
-    mysql_query(conn, "SELECT @isValid");
-
-
-    res_set = mysql_use_result(conn);
-    row = mysql_fetch_row(res_set);
-    return atoi(row[0]);
+    stuInfo = mysql_use_result(conn);
+    if (stuInfo){
+        rowStuInfo = mysql_fetch_row(stuInfo);
+        isValidFlag = 1;
+        currentStudent = new Student(atoi(rowStuInfo[0]), rowStuInfo[1], rowStuInfo[3]);
+    }
+    return isValidFlag;
 }
 

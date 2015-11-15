@@ -20,6 +20,10 @@ Student::Student(int studentId, std::string username, std::string address) {
     this->address = address;
 }
 
+string Student::getAddress() {
+    return address;
+}
+
 string Student::getName() {
     return username;
 }
