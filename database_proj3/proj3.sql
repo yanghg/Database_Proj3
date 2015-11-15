@@ -1,13 +1,11 @@
 -- login procedure
 delimiter //
 DROP PROCEDURE IF EXISTS login//
-CREATE PROCEDURE login(IN username VARCHAR(20), IN userpassword VARCHAR(10), OUT flag BOOLEAN)
+CREATE PROCEDURE login(IN username VARCHAR(20), IN userpassword VARCHAR(10))
 BEGIN
 	IF EXISTS (SELECT * FROM student WHERE username = Name AND userpassword = password) 
     THEN
-		SET flag = TRUE;
-	ELSE 
-		SET flag = FALSE;
+        SELECT * FROM student WHERE username = Name AND userpassword = password;
 	END IF;
 END//
 
