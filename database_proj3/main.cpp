@@ -21,6 +21,8 @@ int main(int argc, const char * argv[]) {
     }
     cout<<endl<<workflow->getStudent()->getName() + ", Welcome!"<<endl;
     workflow->listCurrentCourses();
+    workflow->listTranscript();
+    workflow->listCourseDetail();
     return 0;
 }
 

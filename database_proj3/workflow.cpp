@@ -22,7 +22,7 @@ Student * WorkFlow::getStudent(){
 bool WorkFlow::serverConnInit(){
     MYSQL * successConn;
     conn = mysql_init(NULL);
-    successConn = mysql_real_connect(conn, "localhost", "root", "12345678", "project3-nudb", 3306, 0, 0);
+    successConn = mysql_real_connect(conn, "localhost", "root", "fangxiao", "project3-nudb", 3307, 0, 0);
 
     // check if connection is built successfully
     if (!successConn) {
@@ -67,7 +67,6 @@ void WorkFlow::listCurrentCourses(){
     string callProcedure = "CALL list_current_courses(" + to_string(currentStudent->getStudentId()) + ");";
     mysql_query(conn, callProcedure.c_str());
     res_set = mysql_use_result(conn);
-    if (!res_set) cout<<currentStudent->getStudentId()<<endl;
     int num_fields = mysql_num_fields(res_set);
     cout<<"Courses:"<<endl;
     while(row = mysql_fetch_row(res_set)){
@@ -81,3 +80,53 @@ void WorkFlow::listCurrentCourses(){
         cout<<endl;
     }
 }
+
+void WorkFlow::listTranscript() {
+    serverConnInit();
+    MYSQL_RES *stuTrans;
+    MYSQL_ROW rowStuTrans;
+    string callProcedure = "CALL list_transcript(" + to_string(currentStudent->getStudentId()) + ");";
+    mysql_query(conn, callProcedure.c_str());
+    stuTrans = mysql_use_result(conn);
+    int numFields = mysql_num_fields(stuTrans);
+    cout<<"Courses:"<<endl;
+    while(rowStuTrans = mysql_fetch_row(stuTrans)){
+        for (int j = 0; j < numFields; j++) {
+            if (!rowStuTrans[j]) {
+                cout<<"n.a."<<" ";
+            }else{
+                cout<<rowStuTrans[j]<<" ";
+            }
+        }
+        cout<<endl;
+    }
+}
+
+void WorkFlow::listCourseDetail() {
+    serverConnInit();
+    MYSQL_RES *courseDetail;
+    MYSQL_ROW rowCourseDetail;
+    string courseNum = "";
+    cout << "Course Number:" << endl;
+    cin >> courseNum;
+    string callProcedure = "CALL list_course_detail(" + to_string(currentStudent->getStudentId()) + ", '" +courseNum + "'" + ");";
+    cout << callProcedure <<endl;
+    mysql_query(conn, callProcedure.c_str());
+    courseDetail = mysql_use_result(conn);
+    int numFields = mysql_num_fields(courseDetail);
+    cout<<"Courses:"<<endl;
+    while(rowCourseDetail = mysql_fetch_row(courseDetail)){
+        for (int j = 0; j < numFields; j++) {
+            if (!rowCourseDetail[j]) {
+                cout<<"n.a."<<" ";
+            }else{
+                cout<<rowCourseDetail[j]<<" ";
+            }
+        }
+        cout<<endl;
+    }
+}
+
+
+
+

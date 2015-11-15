@@ -21,6 +21,8 @@ public:
     bool serverConnInit();
     int login();
     void listCurrentCourses();
+    void listTranscript();
+    void listCourseDetail();
 private:
     Student * currentStudent;
     MYSQL * conn;
