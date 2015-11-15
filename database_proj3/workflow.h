@@ -17,10 +17,12 @@
 class WorkFlow{
 public:
     WorkFlow();
+    Student * getStudent();
     bool serverConnInit();
     int login();
+    void listCurrentCourses();
 private:
-    Student *currentStudent;
+    Student * currentStudent;
     MYSQL * conn;
 };
 

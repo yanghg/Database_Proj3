@@ -15,10 +15,14 @@ WorkFlow::WorkFlow(){
 
 }
 
+Student * WorkFlow::getStudent(){
+    return currentStudent;
+}
+
 bool WorkFlow::serverConnInit(){
     MYSQL * successConn;
     conn = mysql_init(NULL);
-    successConn = mysql_real_connect(conn, "localhost", "root", "fangxiao", "project3-nudb", 3307, 0, 0);
+    successConn = mysql_real_connect(conn, "localhost", "root", "12345678", "project3-nudb", 3306, 0, 0);
 
     // check if connection is built successfully
     if (!successConn) {
@@ -31,7 +35,7 @@ bool WorkFlow::serverConnInit(){
 
 // Harry Jenkins butterflY
 int WorkFlow::login(){
-    // insert code here...
+    serverConnInit();
     int isValidFlag = 0;
     MYSQL_RES *stuInfo;
     MYSQL_ROW rowStuInfo;
@@ -56,3 +60,24 @@ int WorkFlow::login(){
     return isValidFlag;
 }
 
+void WorkFlow::listCurrentCourses(){
+    serverConnInit();
+    MYSQL_RES *res_set;
+    MYSQL_ROW row;
+    string callProcedure = "CALL list_current_courses(" + to_string(currentStudent->getStudentId()) + ");";
+    mysql_query(conn, callProcedure.c_str());
+    res_set = mysql_use_result(conn);
+    if (!res_set) cout<<currentStudent->getStudentId()<<endl;
+    int num_fields = mysql_num_fields(res_set);
+    cout<<"Courses:"<<endl;
+    while(row = mysql_fetch_row(res_set)){
+        for (int j = 0; j < num_fields; j++) {
+            if (!row[j]) {
+                cout<<"n.a."<<" ";
+            }else{
+                cout<<row[j]<<" ";
+            }
+        }
+        cout<<endl;
+    }
+}

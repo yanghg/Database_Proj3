@@ -15,12 +15,12 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     WorkFlow * workflow = new WorkFlow();
-    workflow->serverConnInit();
     if (!workflow->login()) {
         printf("Invalid Username or Password!");
         return 1;
     }
-    printf("Welcome!");
+    cout<<endl<<workflow->getStudent()->getName() + ", Welcome!"<<endl;
+    workflow->listCurrentCourses();
     return 0;
 }
 
