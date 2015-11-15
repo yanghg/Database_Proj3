@@ -58,6 +58,53 @@ BEGIN
 	(SELECT Id as InstructorId, Name FROM faculty) faculty_info) helper2;
 END//
 
-delimiter ;
+DROP TRIGGER IF EXISTS enroll//
+CREATE TRIGGER enroll BEFORE INSERT ON transcript
+FOR EACH ROW
+	BEGIN
+		# course existence
+        IF NOT EXISTS (SELECT * FROM uosoffering
+					WHERE uoscode = NEW.uoscode  
+                    AND semester = NEW.semester 
+                    AND year = NEW.year)
+		THEN 
+			SIGNAL SQLSTATE '45001' SET MESSAGE_TEXT = 'Invalid Course';
+		END IF;
+		
+        # max enrollment limitation
+        IF NOT EXISTS (SELECT * FROM uosoffering
+					WHERE uoscode = NEW.uoscode  
+                    AND semester = NEW.semester 
+                    AND year = NEW.year
+                    AND enrollment < maxenrollment)
+			THEN 
+				SIGNAL SQLSTATE '45002' SET MESSAGE_TEXT = 'Max Enrollment Reached';
+		END IF;
+        
+		# time requirement
+        IF MONTH(CURDATE()) >= 9 ||  MONTH(CURDATE()) <= 2
+		THEN
+			SET @Q = 'Q1';
+		ELSE
+			SET @Q = 'Q2';
+		END IF;
+		IF MONTH(CURDATE()) <= 2
+		THEN
+			SET @Y = YEAR(CURDATE()) - 1;
+		ELSE
+			SET @Y = YEAR(CURDATE());
+		END IF;
+        IF NOT ((NEW.year = @Y AND NEW.semester = @Q) 
+			OR (@Q = 'Q1' AND NEW.semester = 'Q2' AND NEW.year = @Y + 1) 
+            OR (@Q = 'Q2' AND NEW.semester = 'Q1' AND NEW.year = @Y))
+		THEN
+			SIGNAL SQLSTATE '45003' SET MESSAGE_TEXT = 'Invalid Enrollment Period';
+		END IF;
+        
+        # pre-requisites limitation
+        SET @c1 = 0;
+        SELECT @c1:=@c1 +1 AS c1 ,prerequoscode FROM requires WHERE NEW.uoscode = uoscode AND CURDATE() >= enforcedsince;
+        
+	END//
 
-CALL list_course_detail(5123, 'INFO1003');
+delimiter ;
