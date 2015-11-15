@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23FDE6461BF80141002735D7 /* workflow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23FDE6441BF80141002735D7 /* workflow.cpp */; };
 		A91527171BF451E700C24F11 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A91527101BF4409400C24F11 /* main.cpp */; };
 		A915C1601BF7ED5500A4DD86 /* student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A915C15E1BF7ED5500A4DD86 /* student.cpp */; };
 		A9B81C7E1BF7BA6400C4F1A4 /* login.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9B81C7C1BF7BA6400C4F1A4 /* login.cpp */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		23FDE6441BF80141002735D7 /* workflow.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = workflow.cpp; sourceTree = "<group>"; };
+		23FDE6451BF80141002735D7 /* workflow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = workflow.h; sourceTree = "<group>"; };
 		A915270D1BF4409400C24F11 /* database_proj3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = database_proj3; sourceTree = BUILT_PRODUCTS_DIR; };
 		A91527101BF4409400C24F11 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A915C15E1BF7ED5500A4DD86 /* student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = student.cpp; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				A9B81C7D1BF7BA6400C4F1A4 /* login.h */,
 				A915C15E1BF7ED5500A4DD86 /* student.cpp */,
 				A915C15F1BF7ED5500A4DD86 /* student.h */,
+				23FDE6441BF80141002735D7 /* workflow.cpp */,
+				23FDE6451BF80141002735D7 /* workflow.h */,
 			);
 			path = database_proj3;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23FDE6461BF80141002735D7 /* workflow.cpp in Sources */,
 				A91527171BF451E700C24F11 /* main.cpp in Sources */,
 				A915C1601BF7ED5500A4DD86 /* student.cpp in Sources */,
 				A9B81C7E1BF7BA6400C4F1A4 /* login.cpp in Sources */,
