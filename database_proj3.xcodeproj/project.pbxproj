@@ -10,7 +10,6 @@
 		23FDE6461BF80141002735D7 /* workflow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 23FDE6441BF80141002735D7 /* workflow.cpp */; };
 		A91527171BF451E700C24F11 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A91527101BF4409400C24F11 /* main.cpp */; };
 		A915C1601BF7ED5500A4DD86 /* student.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A915C15E1BF7ED5500A4DD86 /* student.cpp */; };
-		A9B81C7E1BF7BA6400C4F1A4 /* login.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9B81C7C1BF7BA6400C4F1A4 /* login.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,8 +31,6 @@
 		A91527101BF4409400C24F11 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A915C15E1BF7ED5500A4DD86 /* student.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = student.cpp; sourceTree = "<group>"; };
 		A915C15F1BF7ED5500A4DD86 /* student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = student.h; sourceTree = "<group>"; };
-		A9B81C7C1BF7BA6400C4F1A4 /* login.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = login.cpp; path = ../../Database_Proj3/database_proj3/login.cpp; sourceTree = "<group>"; };
-		A9B81C7D1BF7BA6400C4F1A4 /* login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = login.h; path = ../../Database_Proj3/database_proj3/login.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				A91527101BF4409400C24F11 /* main.cpp */,
-				A9B81C7C1BF7BA6400C4F1A4 /* login.cpp */,
-				A9B81C7D1BF7BA6400C4F1A4 /* login.h */,
 				A915C15E1BF7ED5500A4DD86 /* student.cpp */,
 				A915C15F1BF7ED5500A4DD86 /* student.h */,
 				23FDE6441BF80141002735D7 /* workflow.cpp */,
@@ -136,7 +131,6 @@
 				23FDE6461BF80141002735D7 /* workflow.cpp in Sources */,
 				A91527171BF451E700C24F11 /* main.cpp in Sources */,
 				A915C1601BF7ED5500A4DD86 /* student.cpp in Sources */,
-				A9B81C7E1BF7BA6400C4F1A4 /* login.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

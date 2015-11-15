@@ -14,10 +14,16 @@ Student::Student(){
     
 }
 
-Student::Student(string username) {
+Student::Student(int studentId, std::string username, std::string address) {
+    this->studentId = studentId;
     this->username = username;
+    this->address = address;
 }
 
 string Student::getName() {
     return username;
+}
+
+int Student::getStudentId() {
+    return studentId;
 }

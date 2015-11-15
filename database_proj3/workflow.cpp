@@ -18,7 +18,7 @@ WorkFlow::WorkFlow(){
 bool WorkFlow::serverConnInit(){
     MYSQL * successConn;
     conn = mysql_init(NULL);
-    successConn = mysql_real_connect(conn, "localhost", "root", "12345678", "project3-nudb", 3306, 0, 0);
+    successConn = mysql_real_connect(conn, "localhost", "root", "fangxiao", "project3-nudb", 3307, 0, 0);
 
     // check if connection is built successfully
     if (!successConn) {

@@ -17,9 +17,11 @@ private:
     int studentId;
     std::string username;
     std::string address;
+    
 public:
     Student();
-    Student(std::string username);
+    int getStudentId();
+    Student(int studentId, std::string username, std::string address);
     std::string getName();
 };
 
