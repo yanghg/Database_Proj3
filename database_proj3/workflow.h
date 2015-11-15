@@ -12,12 +12,16 @@
 #include <stdio.h>
 
 #include "student.h"
+#include "mysql.h"
 
-class WorkFLow{
+class WorkFlow{
 public:
+    WorkFlow();
+    bool serverConnInit();
     int login();
 private:
     Student currentStudent;
+    MYSQL * conn;
 };
 
 #endif /* workflow_hpp */

@@ -7,11 +7,30 @@
 //
 
 #include "workflow.h"
-#include "mysql.h"
 #include <iostream>
+
 using namespace std;
 
-int WorkFLow::login(MYSQL *conn){
+WorkFlow::WorkFlow(){
+
+}
+
+bool WorkFlow::serverConnInit(){
+    MYSQL * successConn;
+    conn = mysql_init(NULL);
+    successConn = mysql_real_connect(conn, "localhost", "root", "12345678", "project3-nudb", 3306, 0, 0);
+
+    // check if connection is built successfully
+    if (!successConn) {
+        printf("Can not build connection!");
+        return false;
+    }
+    return true;
+}
+
+
+// Harry Jenkins butterflY
+int WorkFlow::login(){
     // insert code here...
 
     MYSQL_RES *res_set;

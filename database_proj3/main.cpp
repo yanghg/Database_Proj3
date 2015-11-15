@@ -6,39 +6,21 @@
 //  Copyright (c) 2015年 Hongyg. All rights reserved.
 //
 
-#include "login.h"
 #include "student.h"
+#include "workflow.h"
 #include <mysql.h>
 #include <iostream>
 
 using namespace std;
 
 int main(int argc, const char * argv[]) {
-    
-    //initialization
-    Student user;
-    string username;
-    bool isLogin = false;
-    MYSQL *successConn, *conn;
-    conn = mysql_init(NULL);
-    successConn = mysql_real_connect(conn, "localhost", "root", "fangxiao", "project3-nudb", 3307, 0, 0);
-    
-    // check if connection is built successfully
-    if (successConn == NULL) {
-        printf("Can not build connection!");
-        return 1;
-    }
-    
-    isLogin = login(conn);
-    if (isLogin) {
-        printf("Welcome!");
-        
-        //get student profile
-    }
-    else {
+    WorkFlow * workflow = new WorkFlow();
+    workflow->serverConnInit();
+    if (!workflow->login()) {
         printf("Invalid Username or Password!");
         return 1;
     }
+    printf("Welcome!");
     return 0;
 }
 
